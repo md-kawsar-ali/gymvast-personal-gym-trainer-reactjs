@@ -1,10 +1,13 @@
 import React from 'react';
 import BannerImg from '../../images/default-banner.jpg';
+import './Banner.css';
 
 const Banner = () => {
     return (
-        <section style={{ background: `url(${BannerImg})`, backgroundSize: 'cover', height: '600px' }}>
-
+        <section className='banner' style={{ background: `url(${BannerImg})` }}>
+            <div className="container">
+                <h1>World's Best <span>Gym Trainer!</span></h1>
+            </div>
         </section>
     );
 };
