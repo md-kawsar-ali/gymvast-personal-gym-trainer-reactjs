@@ -1,0 +1,40 @@
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.navbar {
+    border-bottom: 1px solid #dddddd;
+}
+
+.navbar-light .navbar-nav {
+    column-gap: 18px;
+}
+
+.navbar-light .navbar-nav a {
+    color: #666565 !important;
+    font-size: 18px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    display: inline-block;
+    padding: 0.4rem;
+    text-decoration: none;
+}
+
+.navbar-light .navbar-nav a.active {
+    color: #f63c25 !important;
+}
+
+@media screen and (max-width: 991.98px) {
+    .navbar-light .navbar-nav a {
+        text-align: center;
+        padding: 5px;
+    }
+    .navbar-collapse {
+        text-align: center;
+    }
+    .navbar .theme-btn {
+        margin: 5px 5px 10px;
+    }
+}

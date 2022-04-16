@@ -1,0 +1,20 @@
+[
+    {
+        "id": "01",
+        "title": "BASIC PLAN",
+        "price": "49",
+        "features": ["Get Free WiFi", "Month to Month", "No Time Restrictions", "Gym and Cardio", "Service Locker Rooms"]
+    },
+    {
+        "id": "02",
+        "title": "ADVANCE",
+        "price": "69",
+        "features": ["Get Free WiFi", "Month to Month", "No Time Restrictions", "Gym and Cardio", "Service Locker Rooms"]
+    },
+    {
+        "id": "03",
+        "title": "PREMIUM",
+        "price": "99",
+        "features": ["Get Free WiFi", "Month to Month", "No Time Restrictions", "Gym and Cardio", "Service Locker Rooms"]
+    }
+]
