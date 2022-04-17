@@ -18,7 +18,7 @@ const Service = (props) => {
 
                 <span className='price'>Only ${price}</span>
                 <div className="detail">
-                    <h4>{title}</h4>
+                    <h4 onClick={getStarted}>{title}</h4>
                     <p>{description}</p>
                     <button onClick={getStarted}>Get Started</button>
                 </div>
