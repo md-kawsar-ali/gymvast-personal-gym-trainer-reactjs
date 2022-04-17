@@ -1,0 +1,78 @@
+.service {
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+.service::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.15) 100%
+    );
+}
+
+.service .detail {
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    z-index: 9;
+    transform: translateY(95px);
+    transition: all 0.3s;
+}
+
+.service:hover .detail {
+    transform: translateY(0);
+    transition: all 0.3s;
+}
+
+.service .detail h4 {
+    color: #ffffff;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 18px;
+}
+
+.service .detail p {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.service .detail a,
+.service .detail button {
+    color: #f63c25;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    background: transparent;
+    padding: 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.service .price {
+    color: #ffffff;
+    font-weight: 600;
+    background: #f63c25;
+    display: inline-block;
+    padding: 3px 7px;
+    border-radius: 3px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.service:hover .price {
+    opacity: 1;
+    transition: opacity 0.3s;
+}

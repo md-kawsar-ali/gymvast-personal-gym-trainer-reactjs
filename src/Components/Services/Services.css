@@ -1,0 +1,11 @@
+.services {
+    padding: 100px 0;
+}
+
+.services .section-title {
+    color: #232323;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
