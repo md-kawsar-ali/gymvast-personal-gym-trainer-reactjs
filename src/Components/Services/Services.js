@@ -2,9 +2,14 @@ import React from 'react';
 import Service from '../Service/Service';
 import './Services.css';
 import useServices from './../../hooks/useServices';
+import Loader from '../Loader/Loader';
 
 const Services = () => {
-    const [result] = useServices();
+    const [result, dataLoading] = useServices();
+
+    if (dataLoading) {
+        return <Loader />;
+    }
 
     return (
         <section className='services'>

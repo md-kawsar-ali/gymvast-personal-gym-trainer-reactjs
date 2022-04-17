@@ -4,7 +4,7 @@ import './Login.css';
 import auth from './../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loader from './../Loader/Loader';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 
 const Login = () => {
@@ -15,6 +15,8 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     const [validated, setValidated] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     // If user Created Show Success Message and Navigate to Home Page
     useEffect(() => {
@@ -26,11 +28,11 @@ const Login = () => {
             );
 
             setTimeout(() => {
-                navigate('/', { replace: true });
+                navigate(from, { replace: true });
                 return;
             }, 1000);
         }
-    }, [user, navigate]);
+    }, [user, navigate, from]);
 
     // Handle Registration
     const handleLogin = async (event) => {

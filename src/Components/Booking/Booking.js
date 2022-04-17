@@ -4,39 +4,54 @@ import { useParams } from 'react-router-dom';
 import useServices from './../../hooks/useServices';
 import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init';
+import Loader from '../Loader/Loader';
+import NotFound from '../NotFound/NotFound';
 
 const Booking = () => {
-    const [result] = useServices();
+    const [user, loading] = useAuthState(auth);
+    const [result, dataLoading] = useServices();
     const [service, setService] = useState();
     const [name, setName] = useState('');
-    const [nameErr, setNameErr] = useState(false);
     const { serviceId } = useParams();
 
+    // Find the Selected Service
     useEffect(() => {
         const selected = result?.find(service => service.id === serviceId);
         setService(selected);
     }, [result, serviceId]);
 
+    // Set Username from Account
+    useEffect(() => {
+        if (user) {
+            setName(user?.displayName);
+        }
+    }, [user]);
+
     // Handle Name
     const retriveName = (e) => {
-        if (e.target.value) {
-            setName(e.target.value);
-            setNameErr(false);
-        } else {
-            setNameErr(true);
-        }
+        setName(e.target.value);
     }
 
     // Handle Booking
     const handleBooking = (e) => {
         e.preventDefault();
         if (name && service.title && service.price) {
-            toast.success(`Thanks ${name}, for the Booking!`, {
+            toast.success(`Thanks ${name}, for your Booking!`, {
                 id: 'BookingSuccess',
                 duration: 4000
             });
             e.target.reset();
         }
+    }
+
+    if (loading || dataLoading) {
+        return <Loader />;
+    }
+
+    if (!service) {
+        return <NotFound />;
     }
 
     return (
@@ -55,15 +70,12 @@ const Booking = () => {
                                 <Form onSubmit={handleBooking}>
                                     <Form.Group className="mb-3" controlId="formName">
                                         <Form.Label>Your Name</Form.Label>
-                                        <Form.Control type="text" onChange={retriveName} placeholder='Enter Your Name' required />
-                                        {
-                                            nameErr && <span className='text-danger'>Please, Enter your name!</span>
-                                        }
+                                        <Form.Control type="text" onChange={retriveName} value={name} placeholder='Enter Your Name' required />
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formEmail">
                                         <Form.Label>Email address</Form.Label>
-                                        <Form.Control type="email" value={'jhon@example.com'} readOnly />
+                                        <Form.Control type="email" value={user?.email} readOnly />
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formProgram">
