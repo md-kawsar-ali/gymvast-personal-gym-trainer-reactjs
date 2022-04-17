@@ -18,7 +18,7 @@ const Header = () => {
                         <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/">Home</NavLink>
                         <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/about">About</NavLink>
                         <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/services">Services</NavLink>
-                        <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/contact">Contact</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/blog">Blog</NavLink>
                     </Nav>
                     <Outlet />
                     <Link className="theme-btn ms-lg-4" to="login">Login</Link>
