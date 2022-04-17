@@ -3,10 +3,13 @@ import './Booking.css';
 import { useParams } from 'react-router-dom';
 import useServices from './../../hooks/useServices';
 import Form from 'react-bootstrap/Form';
+import toast from 'react-hot-toast';
 
 const Booking = () => {
     const [result] = useServices();
     const [service, setService] = useState();
+    const [name, setName] = useState('');
+    const [nameErr, setNameErr] = useState(false);
     const { serviceId } = useParams();
 
     useEffect(() => {
@@ -14,11 +17,33 @@ const Booking = () => {
         setService(selected);
     }, [result, serviceId]);
 
+    // Handle Name
+    const retriveName = (e) => {
+        if (e.target.value) {
+            setName(e.target.value);
+            setNameErr(false);
+        } else {
+            setNameErr(true);
+        }
+    }
+
+    // Handle Booking
+    const handleBooking = (e) => {
+        e.preventDefault();
+        if (name && service.title && service.price) {
+            toast.success(`Thanks ${name}, for the Booking!`, {
+                id: 'BookingSuccess',
+                duration: 4000
+            });
+            e.target.reset();
+        }
+    }
+
     return (
         <section className='booking'>
             <div className="container">
-                <div className="row justify-content-evenly align-items-center gy-4">
-                    <div className="col-lg-5">
+                <div className="row justify-content-evenly align-items-center gy-5">
+                    <div className="col-lg-5 text-center">
                         <img src={service?.image} className='img-fluid' alt={service} />
                     </div>
 
@@ -27,10 +52,13 @@ const Booking = () => {
                             service &&
                             <>
                                 <h2 className='mb-2'>Book {service?.title}</h2>
-                                <Form onSubmit={(e) => e.preventDefault()}>
+                                <Form onSubmit={handleBooking}>
                                     <Form.Group className="mb-3" controlId="formName">
                                         <Form.Label>Your Name</Form.Label>
-                                        <Form.Control type="text" placeholder='Enter Your Name' />
+                                        <Form.Control type="text" onChange={retriveName} placeholder='Enter Your Name' required />
+                                        {
+                                            nameErr && <span className='text-danger'>Please, Enter your name!</span>
+                                        }
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formEmail">
