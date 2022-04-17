@@ -4,8 +4,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import './Header.css';
 import Logo from "../../images/logo-black.png";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
             <Container>
@@ -21,7 +26,12 @@ const Header = () => {
                         <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/blog">Blog</NavLink>
                     </Nav>
                     <Outlet />
-                    <Link className="theme-btn ms-lg-4" to="login">Login</Link>
+                    {
+                        user ?
+                            <button className="theme-btn ms-lg-4" onClick={() => signOut(auth)}>Logout</button>
+                            :
+                            <Link className="theme-btn ms-lg-4" to="login">Login</Link>
+                    }
                 </Navbar.Collapse>
             </Container>
         </Navbar>
