@@ -1,0 +1,12 @@
+.registration {
+    padding: 100px 0;
+}
+
+.registration .title {
+    color: #333333;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+}

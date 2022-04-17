@@ -10,6 +10,7 @@ import Footer from './Components/Footer/Footer';
 import Blog from './Components/Blog/Blog';
 import { Toaster } from 'react-hot-toast';
 import Register from './Components/Register/Register';
+import Login from './Components/Login/Login';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/booking/:serviceId" element={<Booking />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
