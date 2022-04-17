@@ -5,6 +5,7 @@ import Home from './Components/Home/Home';
 import NotFound from './Components/NotFound/NotFound';
 import Services from './Components/Services/Services';
 import Booking from './Components/Booking/Booking';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/booking/:serviceId" element={<Booking />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+
+      <Footer></Footer>
     </div>
   );
 }
