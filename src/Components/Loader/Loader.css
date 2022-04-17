@@ -1,0 +1,11 @@
+.loader {
+    height: calc(100vh - 170px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader .spinner-border {
+    border: 0.25em solid #f63c25;
+    border-right-color: transparent;
+}

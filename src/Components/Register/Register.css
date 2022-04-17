@@ -1,0 +1,32 @@
+.registration {
+    padding: 100px 0;
+}
+
+.registration .title {
+    color: #333333;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.theme-form {
+    padding: 30px;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+}
+
+.theme-form a {
+    color: #555555;
+    font-size: 17px;
+    font-weight: 400;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.theme-form a span {
+    color: #f63c25;
+    font-weight: 600;
+}
