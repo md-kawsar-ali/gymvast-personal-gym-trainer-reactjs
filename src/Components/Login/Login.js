@@ -111,7 +111,7 @@ const Login = () => {
                             <Link to="/register">Don't have account? <span>Register</span></Link>
                             {error && <strong className='text-danger d-block text-center mt-1'>
                                 {
-                                    error?.message.includes('already') ? 'Email Already Exist!' : 'Something Went Wrong!'
+                                    error?.message.includes('wrong-password') ? 'Wrong Password! Try to remember password.' : 'User Not Found! Please, Create account!'
                                 }
                             </strong>}
 

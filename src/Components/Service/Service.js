@@ -14,7 +14,7 @@ const Service = (props) => {
     return (
         <div className="col-lg-3 col-md-6">
             <div className="service">
-                <img src={image} className='img-fluid' alt={title} />
+                <img src={image} className='w-100' alt={title} />
 
                 <span className='price'>Only ${price}</span>
                 <div className="detail">

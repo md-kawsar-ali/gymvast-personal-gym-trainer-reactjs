@@ -37,3 +37,13 @@ body {
     border: none;
     border-radius: 5px;
 }
+
+section {
+    padding: 100px 0;
+}
+
+@media screen and (max-width: 767.98px) {
+    section {
+        padding: 70px 0;
+    }
+}

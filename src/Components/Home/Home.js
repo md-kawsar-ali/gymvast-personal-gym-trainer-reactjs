@@ -1,12 +1,14 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import Services from '../Services/Services';
+import WhyBlock from '../WhyBlock/WhyBlock';
 
 const Home = () => {
     return (
         <main>
-            <Banner></Banner>
-            <Services></Services>
+            <Banner />
+            <Services />
+            <WhyBlock />
         </main>
     );
 };

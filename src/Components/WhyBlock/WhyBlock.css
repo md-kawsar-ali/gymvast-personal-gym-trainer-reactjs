@@ -1,0 +1,35 @@
+.why-block {
+    background: #101010;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.why-block h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.why-block p {
+    color: #cbcbcb;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.why-block .bg-shadow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #141414;
+    font-size: 16rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    z-index: -1;
+}
+
+.why-block img {
+    border-radius: 15px;
+}

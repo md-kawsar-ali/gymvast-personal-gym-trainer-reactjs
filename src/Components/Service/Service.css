@@ -44,6 +44,12 @@
 .service .detail p {
     color: #ffffff;
     margin-bottom: 10px;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.service:hover .detail p {
+    opacity: 1;
 }
 
 .service .detail a,
@@ -57,6 +63,13 @@
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.service:hover .detail a,
+.service:hover .detail button {
+    opacity: 1;
 }
 
 .service .price {
