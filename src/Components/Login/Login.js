@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import './Login.css';
 import auth from './../../firebase.init';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import {
+    useSignInWithEmailAndPassword,
+    useSignInWithGoogle
+} from 'react-firebase-hooks/auth';
 import Loader from './../Loader/Loader';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
@@ -40,7 +43,7 @@ const Login = () => {
         }
     }, [user, navigate, from, googleUser]);
 
-    // Handle Registration
+    // Handle Login
     const handleLogin = async (event) => {
         event.preventDefault();
         const form = event.currentTarget;
@@ -87,7 +90,10 @@ const Login = () => {
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="validationPassword">
-                                <Form.Label>Password</Form.Label>
+                                <div className='d-flex align-items-center justify-content-between w-100'>
+                                    <Form.Label>Password</Form.Label>
+                                    <Link style={{ fontSize: '15px' }} className='form-label' to='/reset-password'>Forgot Password?</Link>
+                                </div>
                                 <Form.Control
                                     type="password"
                                     name="password"

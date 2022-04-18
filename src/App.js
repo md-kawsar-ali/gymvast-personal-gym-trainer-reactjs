@@ -11,6 +11,7 @@ import Blog from './Components/Blog/Blog';
 import { Toaster } from 'react-hot-toast';
 import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';
+import ResetPassword from './Components/Login/ResetPassword/ResetPassword';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
