@@ -7,12 +7,14 @@ Live Preview: [Click Me](https://gymvast.web.app)
 -   React Router
 -   React Bootstrap
 -   Firebase
+-   React Firebase Hooks
 -   React Hot Toast and so on
 
 ## Key Features
 
 -   Booking System
 -   Login System
+-   Reset Password
 -   Registration System
 -   Protected Page
 

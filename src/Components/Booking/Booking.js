@@ -12,7 +12,7 @@ import NotFound from '../NotFound/NotFound';
 const Booking = () => {
     const [user, loading] = useAuthState(auth);
     const [result, dataLoading] = useServices();
-    const [service, setService] = useState();
+    const [service, setService] = useState([]);
     const [name, setName] = useState('');
     const { serviceId } = useParams();
 
