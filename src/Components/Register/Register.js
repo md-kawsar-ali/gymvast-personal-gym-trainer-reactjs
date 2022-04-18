@@ -66,7 +66,7 @@ const Register = () => {
         <section className='registration'>
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-lg-5">
+                    <div className="col-lg-5 col-md-8 px-4">
                         <Form className="theme-form" noValidate validated={validated} onSubmit={handleRegistration}>
                             <h2 className="title">Register</h2>
                             <Form.Group className="mb-3" controlId="validationName">

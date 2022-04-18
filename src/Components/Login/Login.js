@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import './Login.css';
 import auth from './../../firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Loader from './../Loader/Loader';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import GoogleIcon from '../../images/google-icon.png';
 
 const Login = () => {
     const [signInWithEmailAndPassword,
@@ -13,6 +14,12 @@ const Login = () => {
         loading,
         error
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [signInWithGoogle,
+        googleUser,
+        googleLoading
+    ] = useSignInWithGoogle(auth);
+
     const [validated, setValidated] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
@@ -20,19 +27,18 @@ const Login = () => {
 
     // If user Created Show Success Message and Navigate to Home Page
     useEffect(() => {
-        if (user?.user?.email) {
+        if (user?.user?.email || googleUser?.user?.email) {
             toast.success('Logged In!', {
                 duration: 4000,
                 id: 'login'
-            }
-            );
+            });
 
             setTimeout(() => {
                 navigate(from, { replace: true });
                 return;
             }, 1000);
         }
-    }, [user, navigate, from]);
+    }, [user, navigate, from, googleUser]);
 
     // Handle Registration
     const handleLogin = async (event) => {
@@ -57,15 +63,15 @@ const Login = () => {
         setValidated(false);
     };
 
-    if (loading) {
+    if (loading || googleLoading) {
         return <Loader />;
     }
 
     return (
-        <section className='registration'>
+        <section className='login'>
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-lg-5">
+                    <div className="col-lg-5 col-md-8 px-4">
                         <Form className="theme-form" noValidate validated={validated} onSubmit={handleLogin}>
                             <h2 className="title">Login</h2>
                             <Form.Group className="mb-3" controlId="validationEmail">
@@ -96,12 +102,23 @@ const Login = () => {
                             </Form.Group>
 
                             <button className='theme-btn w-100 mb-3' type="submit">Login</button>
-                            <Link to="/register">New User? <span>Register</span></Link>
+                            <Link to="/register">Don't have account? <span>Register</span></Link>
                             {error && <strong className='text-danger d-block text-center mt-1'>
                                 {
                                     error?.message.includes('already') ? 'Email Already Exist!' : 'Something Went Wrong!'
                                 }
                             </strong>}
+
+                            <div className="divider">
+                                <span></span>
+                                <p>Or</p>
+                                <span></span>
+                            </div>
+
+                            <button type='button' onClick={() => signInWithGoogle()} className='social-login-btn'>
+                                <img src={GoogleIcon} alt="Sign In With Google" />
+                                Continue With Google
+                            </button>
                         </Form>
                     </div>
                 </div>
