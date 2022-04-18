@@ -26,3 +26,15 @@
     color: #f63c25;
     font-weight: 600;
 }
+
+@media screen and (max-width: 767.98px) {
+    .theme-form {
+        padding: 20px;
+        border: 1px solid #dddddd;
+        border-radius: 7px;
+    }
+    .registration .title {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+}

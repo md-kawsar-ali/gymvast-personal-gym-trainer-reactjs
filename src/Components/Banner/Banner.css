@@ -34,3 +34,14 @@
 .banner h1 span {
     color: #f63c25;
 }
+
+@media screen and (max-width: 767.98px) {
+    .banner {
+        min-height: auto;
+        padding: 70px 0;
+    }
+    .banner h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+}

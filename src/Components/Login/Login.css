@@ -50,3 +50,17 @@
 .social-login-btn img {
     height: 25px;
 }
+
+@media screen and (max-width: 767.98px) {
+    .login .title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+    .social-login-btn {
+        font-size: 14px;
+        border-radius: 5px;
+        column-gap: 10px;
+        padding-right: 10px;
+    }
+}

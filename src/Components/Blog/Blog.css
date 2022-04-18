@@ -23,3 +23,19 @@
     padding: 1rem 1.25rem;
     line-height: 1.7;
 }
+
+@media screen and (max-width: 767.98px) {
+    .accordion-flush .accordion-item .accordion-button {
+        font-size: 16px;
+        line-height: 1.45;
+        padding: 15px;
+    }
+    .accordion-button::after {
+        display: none;
+    }
+    .accordion-body {
+        font-size: 16px;
+        padding: 1rem;
+        line-height: 1.5;
+    }
+}
