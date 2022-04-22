@@ -12,7 +12,7 @@ const Register = () => {
         user,
         loading,
         error
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating] = useUpdateProfile(auth);
     const [validated, setValidated] = useState(false);
     const navigate = useNavigate();
@@ -51,7 +51,7 @@ const Register = () => {
         const password = event.target.password.value;
 
         // Create Account
-        await createUserWithEmailAndPassword(email, password, { sendEmailVerification: true });
+        await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
 
         // Reset Form

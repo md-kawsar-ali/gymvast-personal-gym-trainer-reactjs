@@ -10,6 +10,7 @@ import { signOut } from 'firebase/auth';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    console.log(user);
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
